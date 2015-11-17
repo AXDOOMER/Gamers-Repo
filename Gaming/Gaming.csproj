@@ -114,6 +114,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GamingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -190,6 +191,11 @@
     <Content Include="Scripts\jui_theme_switch\json_data\user\README" />
     <Content Include="Scripts\jui_theme_switch\MIT_LICENSE" />
     <Content Include="Scripts\jui_theme_switch\README.md" />
+    <Content Include="Views\Jeux\Ajouter.cshtml" />
+    <Content Include="Views\Jeux\Details.cshtml" />
+    <Content Include="Views\Jeux\Editer.cshtml" />
+    <Content Include="Views\Jeux\Lister.cshtml" />
+    <Content Include="Views\Gaming\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
