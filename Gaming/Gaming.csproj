@@ -108,7 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Personnes\" />
+    <Folder Include="Views\Jeux\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -191,10 +191,10 @@
     <Content Include="Scripts\jui_theme_switch\json_data\user\README" />
     <Content Include="Scripts\jui_theme_switch\MIT_LICENSE" />
     <Content Include="Scripts\jui_theme_switch\README.md" />
-    <Content Include="Views\Jeux\Ajouter.cshtml" />
-    <Content Include="Views\Jeux\Details.cshtml" />
-    <Content Include="Views\Jeux\Editer.cshtml" />
-    <Content Include="Views\Jeux\Lister.cshtml" />
+    <Content Include="Views\Personnes\Ajouter.cshtml" />
+    <Content Include="Views\Personnes\Details.cshtml" />
+    <Content Include="Views\Personnes\Editer.cshtml" />
+    <Content Include="Views\Personnes\Lister.cshtml" />
     <Content Include="Views\Gaming\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
