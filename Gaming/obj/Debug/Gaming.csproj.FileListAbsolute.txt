@@ -24,3 +24,29 @@ C:\Users\Alexandre-Xavier\Documents\Visual Studio 2013\Projects\Gaming\Gaming\bi
 C:\Users\Alexandre-Xavier\Documents\Visual Studio 2013\Projects\Gaming\Gaming\obj\Debug\Gaming.csprojResolveAssemblyReference.cache
 C:\Users\Alexandre-Xavier\Documents\Visual Studio 2013\Projects\Gaming\Gaming\obj\Debug\Gaming.dll
 C:\Users\Alexandre-Xavier\Documents\Visual Studio 2013\Projects\Gaming\Gaming\obj\Debug\Gaming.pdb
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\obj\Debug\Gaming.csprojResolveAssemblyReference.cache
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\obj\Debug\Gaming.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\obj\Debug\Gaming.pdb
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Gaming.dll.config
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Gaming.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Gaming.pdb
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Antlr3.Runtime.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Newtonsoft.Json.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Helpers.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Mvc.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Optimization.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Razor.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.Deployment.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.Razor.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\WebGrease.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Helpers.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Mvc.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Optimization.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.Razor.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.Deployment.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.Razor.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Newtonsoft.Json.xml
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Antlr3.Runtime.pdb

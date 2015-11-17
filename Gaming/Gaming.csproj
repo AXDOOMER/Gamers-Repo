@@ -108,16 +108,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Views\Personnes\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Gaming.cs" />
+    <Compile Include="Models\SqlExpressUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -131,14 +134,37 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Photos\Anonymous.png" />
+    <Content Include="Images\UI\Abort.png" />
+    <Content Include="Images\UI\Accept.png" />
+    <Content Include="Images\UI\Add.png" />
+    <Content Include="Images\UI\Delete.png" />
+    <Content Include="Images\UI\Delete_Disable.png" />
+    <Content Include="Images\UI\Details.png" />
+    <Content Include="Images\UI\Edit.png" />
+    <Content Include="Images\UI\Icon_Expanded_neutral.png" />
+    <Content Include="Images\UI\Icon_Expand_neutral.png" />
+    <Content Include="Images\UI\important.png" />
+    <Content Include="Images\UI\Previous.png" />
+    <Content Include="Images\UI\Sort.png" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\jui_theme_switch\jquery.jui_theme_switch.css" />
+    <Content Include="Scripts\jui_theme_switch\jquery.jui_theme_switch.js" />
+    <Content Include="Scripts\jui_theme_switch\jquery.jui_theme_switch.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Utilities.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -155,6 +181,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jui_theme_switch\.gitignore" />
+    <Content Include="Scripts\jui_theme_switch\CHANGELOG.md" />
+    <Content Include="Scripts\jui_theme_switch\json_data\dist\default.json" />
+    <Content Include="Scripts\jui_theme_switch\json_data\dist\demo-all.json" />
+    <Content Include="Scripts\jui_theme_switch\json_data\dist\demo-selected.json" />
+    <Content Include="Scripts\jui_theme_switch\json_data\dist\README" />
+    <Content Include="Scripts\jui_theme_switch\json_data\user\README" />
+    <Content Include="Scripts\jui_theme_switch\MIT_LICENSE" />
+    <Content Include="Scripts\jui_theme_switch\README.md" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
