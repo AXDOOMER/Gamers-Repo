@@ -55,7 +55,7 @@ namespace Gaming.Controllers
             {
                 Personnes personnes = new Personnes(Session["DB_REPO"]);
                 personnes.personne = personne;
-                personnes.personne.UpLoadPoster(Request);
+                personnes.personne.UpLoadImage(Request);
                 personnes.Insert();
                 return RedirectToAction("Lister", "Personnes");
             }
@@ -88,7 +88,7 @@ namespace Gaming.Controllers
                 if (personnes.SelectByID(personne.Id))
                 {
                     personnes.personne = personne;
-                    personnes.personne.UpLoadPoster(Request);
+                    personnes.personne.UpLoadImage(Request);
                     personnes.Update();
                     return RedirectToAction("Lister", "Personnes");
                 }

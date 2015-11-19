@@ -135,6 +135,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Photos\Anonymous.png" />
+    <Content Include="Images\Photos\UnknownGame.png" />
     <Content Include="Images\UI\Abort.png" />
     <Content Include="Images\UI\Accept.png" />
     <Content Include="Images\UI\Add.png" />

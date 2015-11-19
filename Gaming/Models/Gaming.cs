@@ -116,17 +116,17 @@ namespace Gaming
             ImageReference = new ImageGUIDReference(@"/Images/Photos/", @"Anonymous.png");
         }
 
-        public String GetPosterURL()
+        public String GetImageURL()
         {
             return ImageReference.GetImageURL(Photo);
         }
 
-        public void UpLoadPoster(HttpRequestBase Request)
+        public void UpLoadImage(HttpRequestBase Request)
         {
             Photo = ImageReference.UpLoadImage(Request, Photo);
         }
 
-        public void RemovePoster()
+        public void RemoveImage()
         {
             ImageReference.Remove(Photo);
         }
@@ -157,7 +157,7 @@ namespace Gaming
         {
             if (this.SelectByID(ID))
             {
-                this.personne.RemovePoster();
+                this.personne.RemoveImage();
                 base.DeleteRecordByID(ID);
             }
         }
@@ -198,20 +198,20 @@ namespace Gaming
             Description = "";
             SiteWeb = "";
             Photo_Id = "";
-            ImageReference = new ImageGUIDReference(@"/Images/Films/", @"UnknownPoster.png");
+            ImageReference = new ImageGUIDReference(@"/Images/Photos/", @"UnknownGame.png");
         }
 
-        public String GetPosterURL()
+        public String GetImageURL()
         {
             return ImageReference.GetImageURL(Photo_Id);
         }
 
-        public void UpLoadPoster(HttpRequestBase Request)
+        public void UpLoadImage(HttpRequestBase Request)
         {
             Photo_Id = ImageReference.UpLoadImage(Request, Photo_Id);
         }
 
-        public void RemovePoster()
+        public void RemoveImage()
         {
             ImageReference.Remove(Photo_Id);
         }
@@ -242,7 +242,7 @@ namespace Gaming
         {
             if (this.SelectByID(ID))
             {
-                this.jeu.RemovePoster();
+                this.jeu.RemoveImage();
                 base.DeleteRecordByID(ID);
             }
         }

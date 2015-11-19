@@ -55,7 +55,7 @@ namespace Gaming.Controllers
             {
                 Jeux jeux = new Jeux(Session["DB_REPO"]);
                 jeux.jeu = jeu;
-                jeux.jeu.UpLoadPoster(Request);
+                jeux.jeu.UpLoadImage(Request);
                 jeux.Insert();
                 return RedirectToAction("Lister", "Jeux");
             }
@@ -88,7 +88,7 @@ namespace Gaming.Controllers
                 if (jeux.SelectByID(jeu.Id))
                 {
                     jeux.jeu = jeu;
-                    jeux.jeu.UpLoadPoster(Request);
+                    jeux.jeu.UpLoadImage(Request);
                     jeux.Update();
                     return RedirectToAction("Lister", "Jeux");
                 }
