@@ -107,15 +107,14 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Jeux\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GamingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JeuxController.cs" />
     <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +195,10 @@
     <Content Include="Views\Personnes\Editer.cshtml" />
     <Content Include="Views\Personnes\Lister.cshtml" />
     <Content Include="Views\Gaming\Index.cshtml" />
+    <Content Include="Views\Jeux\Ajouter.cshtml" />
+    <Content Include="Views\Jeux\Details.cshtml" />
+    <Content Include="Views\Jeux\Editer.cshtml" />
+    <Content Include="Views\Jeux\Lister.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

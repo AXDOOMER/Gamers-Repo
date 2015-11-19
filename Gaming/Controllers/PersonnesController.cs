@@ -34,14 +34,14 @@ namespace Gaming.Controllers
         }
         public ActionResult Lister()
         {
-            Personnes films = new Personnes(Session["DB_REPO"]);
+            Personnes personnes = new Personnes(Session["DB_REPO"]);
 
             String orderBy = "";
             if (Session["Personne_SortBy"] != null)
                 orderBy = (String)Session["Personne_SortBy"] + " " + (String)Session["Personne_SortOrder"];
 
-            films.SelectAll(orderBy);
-            return View(films.ToList());
+            personnes.SelectAll(orderBy);
+            return View(personnes.ToList());
         }
         public ActionResult Ajouter()
         {
@@ -77,7 +77,7 @@ namespace Gaming.Controllers
             if (personnes.SelectByID(Id))
                 return View(personnes.personne);
             else
-                return RedirectToAction("Lister", "Films");
+                return RedirectToAction("Lister", "Personnes");
         }
         [HttpPost]
         public ActionResult Editer(Gaming.Personne personne)

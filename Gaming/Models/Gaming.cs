@@ -9,6 +9,7 @@ using System.Web;
 namespace Gaming
 {
 
+    // Classe de référence pour un image
     public class ImageGUIDReference
     {
         public String DefaultImage { get; set; }
@@ -82,6 +83,7 @@ namespace Gaming
     }
 
 
+    // La classe pour les personnes
     public class Personne
     {
         public long Id { get; set; }
@@ -161,5 +163,89 @@ namespace Gaming
         }
     }
 
+
+    // La classe pour les jeux
+    public class Jeu
+    {
+        public long Id { get; set; }
+
+        [Display(Name = "Nom")]
+        [StringLength(50), Required]
+        public String Nom { get; set; }
+
+        [Display(Name = "Type")]
+        [StringLength(50), Required]
+        public String Type { get; set; }
+
+        [Display(Name = "Description")]
+        [StringLength(200), Required]
+        public String Description { get; set; }
+
+        [Display(Name = "Adresse site web")]
+        [StringLength(50), Required]
+        public String SiteWeb { get; set; }
+
+
+        [Display(Name = "Photo")]
+        public String Photo_Id { get; set; }
+
+        private ImageGUIDReference ImageReference;
+
+        public Jeu()
+        {
+            Nom = "";
+            Type = "";
+            Description = "";
+            SiteWeb = "";
+            Photo_Id = "";
+            ImageReference = new ImageGUIDReference(@"/Images/Films/", @"UnknownPoster.png");
+        }
+
+        public String GetPosterURL()
+        {
+            return ImageReference.GetImageURL(Photo_Id);
+        }
+
+        public void UpLoadPoster(HttpRequestBase Request)
+        {
+            Photo_Id = ImageReference.UpLoadImage(Request, Photo_Id);
+        }
+
+        public void RemovePoster()
+        {
+            ImageReference.Remove(Photo_Id);
+        }
+    }
+
+    public class Jeux : SqlExpressUtilities.SqlExpressWrapper
+    {
+        public Jeu jeu { get; set; }
+        public Jeux(object cs)
+            : base(cs)
+        {
+            jeu = new Jeu();
+        }
+        public Jeux() { jeu = new Jeu(); }
+
+        public List<Jeu> ToList()
+        {
+            List<object> list = this.RecordsList();
+            List<Gaming.Jeu> jeux_list = new List<Jeu>();
+            foreach (Jeu jeu in list)
+            {
+                jeux_list.Add(jeu);
+            }
+            return jeux_list;
+        }
+
+        public override void DeleteRecordByID(String ID)
+        {
+            if (this.SelectByID(ID))
+            {
+                this.jeu.RemovePoster();
+                base.DeleteRecordByID(ID);
+            }
+        }
+    }
 
 }
