@@ -111,7 +111,7 @@ namespace Gaming
         {
             Nom = "";
             Prenom = "";
-            DateNaissance = DateTime.Now;
+            DateNaissance = (DateTime.Now).Date;
             Photo = "";
             ImageReference = new ImageGUIDReference(@"/Images/Photos/", @"Anonymous.png");
         }
