@@ -23,9 +23,6 @@
         <th>
             @Html.DisplayNameFor(model => model.SiteWeb)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo_Id)
-        </th>
         <th></th>
     </tr>
 
@@ -42,9 +39,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SiteWeb)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo_Id)
         </td>
         <td>
             @Html.ActionLink("Editer", "Editer", new { id=item.Id }) |

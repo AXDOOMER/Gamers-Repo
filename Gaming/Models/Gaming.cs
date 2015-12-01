@@ -187,7 +187,7 @@ namespace Gaming
 
 
         [Display(Name = "Photo")]
-        public String Photo_Id { get; set; }
+        public String Photo { get; set; }
 
         private ImageGUIDReference ImageReference;
 
@@ -197,23 +197,23 @@ namespace Gaming
             Type = "";
             Description = "";
             SiteWeb = "";
-            Photo_Id = "";
+            Photo = "";
             ImageReference = new ImageGUIDReference(@"/Images/Photos/", @"UnknownGame.png");
         }
 
         public String GetImageURL()
         {
-            return ImageReference.GetImageURL(Photo_Id);
+            return ImageReference.GetImageURL(Photo);
         }
 
         public void UpLoadImage(HttpRequestBase Request)
         {
-            Photo_Id = ImageReference.UpLoadImage(Request, Photo_Id);
+            Photo = ImageReference.UpLoadImage(Request, Photo);
         }
 
         public void RemoveImage()
         {
-            ImageReference.Remove(Photo_Id);
+            ImageReference.Remove(Photo);
         }
     }
 
