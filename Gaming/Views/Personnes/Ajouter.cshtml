@@ -36,10 +36,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DataNaissance, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateNaissance, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DataNaissance, new { @class = "datePicker" })
-                @Html.ValidationMessageFor(model => model.DataNaissance)
+                @Html.EditorFor(model => model.DateNaissance, new { @class = "datePicker" })
+                @Html.ValidationMessageFor(model => model.DateNaissance)
             </div>
         </div>
 
@@ -64,7 +64,3 @@
 <div>
     @Html.ActionLink("Retour", "Lister")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

@@ -40,3 +40,42 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+//////////////////////////////////////////////////
+// CSS ajouter au site
+
+textarea {
+    width: 98%;
+    padding: 1%;
+    border: none;
+}
+
+.CMD_Icon {
+     height:48px;
+     cursor: pointer;
+}
+
+.CMD_Icon_2 {
+    height:32px;
+     cursor: pointer;
+}
+.CMD_Icon_3 {
+     height:24px;
+     cursor: pointer;
+}
+.CMD_Icon_4 {
+     height:16px;
+     cursor: pointer;
+}
+.Icon {
+    height:20px;
+}
+
+.datePicker {
+    text-align:right;
+    width:82px;
+}
+
+.poster{
+    height:300px;
+}

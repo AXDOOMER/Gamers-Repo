@@ -5,14 +5,21 @@ namespace Gaming
 {
     public class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+        // Pour plus d’informations sur le regroupement, rendez-vous sur http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/bootstrap.min.js",
+                        "~/Scripts/bootbox.js",
+                        "~/Scripts/jquery-ui-1.11.4.js",
+                        "~/Scripts/jquery.maskedinput.js",
+                        "~/Scripts/Utilities.js"));
+
+
+            // Utilisez la version de développement de Modernizr pour développer et apprendre. Puis, lorsque vous êtes
+            // prêt pour la production, utilisez l’outil de génération sur http://modernizr.com pour sélectionner uniquement les tests dont vous avez besoin.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
@@ -22,7 +29,9 @@ namespace Gaming
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/themes/ui-darkness/jquery.ui.all.css"));
+
         }
     }
 }

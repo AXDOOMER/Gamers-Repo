@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jui_theme_switch</id>
+    <version>1.0.6</version>
+    <title>jQuery ui-theme switcher</title>
+    <authors>Christos Pontikis</authors>
+    <owners>Christos Pontikis</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://pontikis.net/labs/jui_theme_switch/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>jQuery plugin, displays a list of jquery-ui css themes and applies selected theme.</description>
+    <copyright>Christos Pontikis</copyright>
+    <tags>jquery themes themes-roller themes-switch</tags>
+    <dependencies>
+      <dependency id="jQuery" version="1.6" />
+    </dependencies>
+  </metadata>
+</package>

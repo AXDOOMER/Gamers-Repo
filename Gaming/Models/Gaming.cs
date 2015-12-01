@@ -100,7 +100,7 @@ namespace Gaming
 
         [Display(Name = "Date de naissance")]
         [DataType(DataType.Date)]
-        public DateTime DataNaissance { get; set; }
+        public DateTime DateNaissance { get; set; }
 
         [Display(Name = "Photo")]
         public String Photo { get; set; }
@@ -111,7 +111,7 @@ namespace Gaming
         {
             Nom = "";
             Prenom = "";
-            DataNaissance = DateTime.Now;
+            DateNaissance = DateTime.Now;
             Photo = "";
             ImageReference = new ImageGUIDReference(@"/Images/Photos/", @"Anonymous.png");
         }

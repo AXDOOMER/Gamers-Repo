@@ -50,3 +50,10 @@ C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.Dep
 C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\System.Web.WebPages.Razor.xml
 C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Newtonsoft.Json.xml
 C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\Antlr3.Runtime.pdb
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\fr\System.Web.Helpers.resources.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\fr\System.Web.Mvc.resources.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\fr\System.Web.Optimization.resources.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\fr\System.Web.Razor.resources.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\fr\System.Web.WebPages.resources.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\Users\201371444\Desktop\Gaming\Gamers-Repo\Gaming\bin\fr\System.Web.WebPages.Razor.resources.dll
