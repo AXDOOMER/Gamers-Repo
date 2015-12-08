@@ -7,24 +7,42 @@
 <h2>Lister</h2>
 
 <p>
-    @Html.ActionLink("Ajouter un jeu", "Ajouter")
+    <a href='@Url.Action("Ajouter", "Personnes")' style="text-decoration:none">
+        <img src='@Url.Content("~/Images/UI/Add.png")'
+             alt="Ajouter" class="CMD_Icon_3"
+             data-toggle="tooltip"
+             title="Ajouter un film" />
+    </a>
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nom)
+            <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Nom"})' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Sort.png")'
+                     alt="Ajouter" class="CMD_Icon_4"
+                     data-toggle="tooltip"
+                     title="Trier par Nom" />
+            </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Type"})' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Sort.png")'
+                     alt="Ajouter" class="CMD_Icon_4"
+                     data-toggle="tooltip"
+                     title="Trier par Type" />
+            </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Description"})' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Sort.png")'
+                     alt="Ajouter" class="CMD_Icon_4"
+                     data-toggle="tooltip"
+                     title="Trier par Description" />
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SiteWeb)
         </th>
         <th></th>
     </tr>
@@ -42,9 +60,6 @@
         </td>
         <td>
             <img id="new_image" src="@Url.Content("~" + item.GetImageURL())" width="100" height="100" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SiteWeb)
         </td>
         <td>
             @Html.ActionLink("Editer", "Editer", new { id=item.Id }) |

@@ -12,16 +12,31 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Prenom)
+            <a href='@Url.Action("Sort", "Personnes",new {sortBy = "Prenom"})' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Sort.png")'
+                     alt="Ajouter" class="CMD_Icon_4"
+                     data-toggle="tooltip"
+                     title="Trier par Prenom" />
+            </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nom)
+            <a href='@Url.Action("Sort", "Personnes",new {sortBy = "Nom"})' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Sort.png")'
+                     alt="Ajouter" class="CMD_Icon_4"
+                     data-toggle="tooltip"
+                     title="Trier par Nom" />
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Photo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateNaissance)
+            <a href='@Url.Action("Sort", "Personnes",new {sortBy = "DateNaissance"})' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Sort.png")'
+                     alt="Ajouter" class="CMD_Icon_4"
+                     data-toggle="tooltip"
+                     title="Trier par Date de Naissance" />
+            </a>
         </th>
         <th></th>
     </tr>
