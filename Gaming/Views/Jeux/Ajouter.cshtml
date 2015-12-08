@@ -70,5 +70,10 @@
 }
 
 <div>
-    @Html.ActionLink("Retour à la liste", "Lister")
+    <a href='@Url.Action("Lister", "Jeux")' style="text-decoration:none">
+        <img src='@Url.Content("~/Images/UI/Previous.png")'
+             alt="Lister" class="CMD_Icon_3"
+             data-toggle="tooltip"
+             title="Retour à la liste des jeux" />
+    </a> &nbsp;
 </div>

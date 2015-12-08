@@ -45,6 +45,17 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Editer", new { id = Model.Id }) |
-    @Html.ActionLink("Retour", "Lister")
+    <a href='@Url.Action("Editer", "Personnes", new { id = Model.Id })' style="text-decoration:none">
+        <img src='@Url.Content("~/Images/UI/Edit.png")'
+             alt="Editer" class="CMD_Icon_3"
+             data-toggle="tooltip"
+             title="Éditer le gamer @Model.Prenom @Model.Nom" />
+    </a> &nbsp;
+    |
+    <a href='@Url.Action("Lister", "Personnes")' style="text-decoration:none">
+        <img src='@Url.Content("~/Images/UI/Previous.png")'
+             alt="Lister" class="CMD_Icon_3"
+             data-toggle="tooltip"
+             title="Retour à la liste des gamers" />
+    </a> &nbsp;
 </p>
