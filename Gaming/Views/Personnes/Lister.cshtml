@@ -7,7 +7,7 @@
 <h2>Lister</h2>
 
 <p>
-    <a href='@Url.Action("Ajouter", "Jeux")' style="text-decoration:none">
+    <a href='@Url.Action("Ajouter", "Personnes")' style="text-decoration:none">
         <img src='@Url.Content("~/Images/UI/Add.png")'
              alt="Ajouter" class="CMD_Icon_3"
              data-toggle="tooltip"
@@ -78,7 +78,7 @@
 
             <img src='@Url.Content("~/Images/UI/Delete.png")'
                  alt="Delete" class="CMD_Icon_3"
-                 onclick="BBConfirm('Effacer le joueur @item.Nom.Replace(" '", @"\' ")?', '@Url.Action("Effacer", "Personnes", new { id = item.Id })')"
+                 onclick="BBConfirm('Effacer le joueur @item.Prenom.Replace(" '", @"\' ") @item.Nom.Replace(" '", @"\' ")?', '@Url.Action("Effacer", "Personnes", new { id = item.Id })')"
                  data-toggle="tooltip"
                  title="Effacer ce gamer (@item.Prenom @item.Nom)" />
         </td>
