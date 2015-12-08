@@ -7,8 +7,14 @@
 <h2>Lister</h2>
 
 <p>
-    @Html.ActionLink("Ajouter un joueur", "Ajouter")
+    <a href='@Url.Action("Ajouter", "Jeux")' style="text-decoration:none">
+        <img src='@Url.Content("~/Images/UI/Add.png")'
+             alt="Ajouter" class="CMD_Icon_3"
+             data-toggle="tooltip"
+             title="Ajouter un jeu" />
+    </a>
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -56,9 +62,25 @@
             @Html.DisplayFor(modelItem => item.DateNaissance)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Editer", new { id=item.Id }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Effacer", "Effacer", new { id = item.Id })
+            <a href='@Url.Action("Details", "Personnes", new { id = item.Id })' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Details.png")'
+                     alt="Détails" class="CMD_Icon_3"
+                     data-toggle="tooltip"
+                     title="Voir les détails sur @item.Prenom @item.Nom" />
+            </a> &nbsp;
+
+            <a href='@Url.Action("Editer", "Personnes", new { id = item.Id })' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Edit.png")'
+                     alt="Editer" class="CMD_Icon_3"
+                     data-toggle="tooltip"
+                     title="Éditer les détails de @item.Prenom @item.Nom" />
+            </a> &nbsp;
+
+            <img src='@Url.Content("~/Images/UI/Delete.png")'
+                 alt="Delete" class="CMD_Icon_3"
+                 onclick="BBConfirm('Effacer le joueur @item.Nom.Replace(" '", @"\' ")?', '@Url.Action("Effacer", "Personnes", new { id = item.Id })')"
+                 data-toggle="tooltip"
+                 title="Effacer ce gamer (@item.Prenom @item.Nom)" />
         </td>
     </tr>
 }

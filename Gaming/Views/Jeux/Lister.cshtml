@@ -11,7 +11,7 @@
         <img src='@Url.Content("~/Images/UI/Add.png")'
              alt="Ajouter" class="CMD_Icon_3"
              data-toggle="tooltip"
-             title="Ajouter un film" />
+             title="Ajouter un gamer" />
     </a>
 </p>
 
@@ -62,9 +62,25 @@
             <img id="new_image" src="@Url.Content("~" + item.GetImageURL())" width="100" height="100" />
         </td>
         <td>
-            @Html.ActionLink("Editer", "Editer", new { id=item.Id }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Effacer", "Effacer", new { id = item.Id })
+            <a href='@Url.Action("Details", "Jeux", new { id = item.Id })' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Details.png")'
+                     alt="Détails" class="CMD_Icon_3"
+                     data-toggle="tooltip"
+                     title="Voir les détails par rapport à @item.Nom" />
+            </a> &nbsp;
+
+            <a href='@Url.Action("Editer", "Jeux", new { id = item.Id })' style="text-decoration:none">
+                <img src='@Url.Content("~/Images/UI/Edit.png")'
+                     alt="Editer" class="CMD_Icon_3"
+                     data-toggle="tooltip"
+                     title="Éditer les détails de @item.Nom" />
+            </a> &nbsp;
+
+            <img src='@Url.Content("~/Images/UI/Delete.png")'
+                 alt="Delete" class="CMD_Icon_3"
+                 onclick="BBConfirm('Effacer le jeu @item.Nom.Replace(" '", @"\' ")?', '@Url.Action("Effacer", "Jeux", new { id = item.Id })')"
+                 data-toggle="tooltip"
+                 title="Effacer le jeu: @item.Nom" />
         </td>
     </tr>
 }
