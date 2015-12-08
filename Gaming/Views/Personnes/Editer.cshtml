@@ -1,21 +1,20 @@
 ﻿@model Gaming.Personne
 
 @{
-    ViewBag.Title = "Editer";
+    ViewBag.Title = "Modifier";
 }
 
 <h2>Editer</h2>
 
 
 @using (Html.BeginForm("Editer",
-                        "Personnes",
+                        "Un gamer...",
                         FormMethod.Post,
                         new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Personne</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)

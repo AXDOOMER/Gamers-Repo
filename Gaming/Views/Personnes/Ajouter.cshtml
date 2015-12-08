@@ -8,14 +8,13 @@
 
 
 @using (Html.BeginForm("Ajouter",
-                        "Personnes",
+                        "Un gamer...",
                         FormMethod.Post,
                         new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Personne</h4>
         <hr />
         @Html.ValidationSummary(true)
 
