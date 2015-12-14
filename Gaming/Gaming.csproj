@@ -115,6 +115,7 @@
     <Compile Include="Controllers\GamingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JeuxController.cs" />
+    <Compile Include="Controllers\ListeController.cs" />
     <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -263,6 +264,9 @@
     <Content Include="Views\Jeux\Details.cshtml" />
     <Content Include="Views\Jeux\Editer.cshtml" />
     <Content Include="Views\Jeux\Lister.cshtml" />
+    <Content Include="Views\Liste\Lister.cshtml" />
+    <Content Include="Views\Liste\Ajouter.cshtml" />
+    <Content Include="Views\Liste\Editer.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

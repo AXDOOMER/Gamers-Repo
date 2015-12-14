@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Gaming.UnLienListe>
+
+@{
+    ViewBag.Title = "Lister";
+}
+
+<h2>Lister</h2>
+
+<p>
+    <a href='@Url.Action("Ajouter", "Liste")' style="text-decoration:none">
+        <img src='@Url.Content("~/Images/UI/Add.png")'
+             alt="Ajouter" class="CMD_Icon_3"
+             data-toggle="tooltip"
+             title="Ajouter un lien entre un jeu et un gamer" />
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Personnes")
+        </th>
+        <th>
+            @Html.Label("Jeux")
+        </th>
+        <th></th>
+    </tr>
+    @{
+        // Déclare des classes jeux et personnes pour atteindre les tables
+        Jeux jeux = new Jeux(Session["DB_REPO"]);
+        string nomJeu = "";
+        Personnes personnes = new Personnes(Session["DB_REPO"]);
+        string nomPersonne = "";
+    }
+        @foreach (var item in Model)
+        {
+            // Select le nom du jeu
+            jeux.SelectByID(item.IdJeu);
+            nomJeu = jeux.jeu.Nom;
+
+            // Select le nom de la personne
+            personnes.SelectByID(item.IdPersonne);
+            nomPersonne = personnes.personne.Nom; 
+             
+            <tr>
+                <td>
+                    <p> @nomPersonne </p>
+                </td>
+                <td>
+                    <p> @nomJeu </p>
+                </td>
+                <td>
+                    <a href='@Url.Action("Editer", "Liste", new { id = item.Id })' style="text-decoration:none">
+                        <img src='@Url.Content("~/Images/UI/Edit.png")'
+                             alt="Editer" class="CMD_Icon_3"
+                             data-toggle="tooltip"
+                             title="Éditer les détails du lien #@item.Id" />
+                    </a> &nbsp;
+
+                    <img src='@Url.Content("~/Images/UI/Delete.png")'
+                         alt="Delete" class="CMD_Icon_3"
+                         onclick="BBConfirm('Effacer le lien #@item.Id?', '@Url.Action("Effacer", "Liste", new { id = item.Id })')"
+                         data-toggle="tooltip"
+                         title="Effacer le lien: #@item.Id" />
+                </td>
+            </tr>
+        }
+
+</table>

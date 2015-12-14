@@ -34,6 +34,17 @@ namespace Gaming.Controllers
         }
         public ActionResult Lister()
         {
+            if (Request["nom"] != null)
+            {
+                Jeux_Par_Personne jeuxParPersonnes = new Jeux_Par_Personne(Request["nom"], Session["DB_REPO"]);
+
+                /*String orderBy = "";
+                if (Session["Personne_SortBy"] != null)
+                    orderBy = (String)Session["Personne_SortBy"] + " " + (String)Session["Personne_SortOrder"];*/
+
+                jeuxParPersonnes.SelectAll("");
+                return View(jeuxParPersonnes.ToList());
+            }
             Jeux jeux = new Jeux(Session["DB_REPO"]);
 
             String orderBy = "";

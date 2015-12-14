@@ -1,0 +1,63 @@
+﻿@model Gaming.UnLienListe
+
+@{
+    ViewBag.Title = "Ajouter";
+}
+ 
+<h2>Ajouter</h2>
+<h3 style="background-color:red">@ViewBag.Erreur</h3>
+
+@using (Html.BeginForm("Ajouter",
+                        "liste",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+
+    // Déclare des classes jeux et personnes pour atteindre les tables
+    Jeux jeux = new Jeux(Session["DB_REPO"]);
+    jeux.SelectAll();
+    List<Jeu> ListeJeu = jeux.ToList();
+
+    Personnes personnes = new Personnes(Session["DB_REPO"]);
+    personnes.SelectAll();
+    List<Personne> ListePersonne = personnes.ToList();
+    
+    <div class="form-group">           
+        @{
+            // Créer les radio button pour la table Jeux
+            // @Jeu.Nom.ToString()</input>
+            foreach (Jeu jeu in ListeJeu)
+            {         
+                <input type="radio" name="radioJeu" value="@jeu.Id" checked="checked" title="@jeu.Nom.ToString()" />
+                <label>@jeu.Nom.ToString()</label><br>
+            }
+        }
+        </div>
+        <div class="form-group">
+        @{
+            // Créer les radio button pour la table Personnes
+            // @personne.Nom.ToString()</input>
+            foreach (Personne personne in ListePersonne)
+            {     
+                <input type="radio" name="radioPersonne" value="@personne.Id" checked="checked" title="@personne.Nom.ToString()" />
+                <label>@personne.Nom.ToString()</label><br>
+            }
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    
+}
+
+<div>
+    <a href='@Url.Action("Lister", "Liste")' style="text-decoration:none">
+        <img src='@Url.Content("~/Images/UI/Previous.png")'
+             alt="Lister" class="CMD_Icon_3"
+             data-toggle="tooltip"
+             title="Retour à la liste des liens" />
+    </a> &nbsp;
+</div>

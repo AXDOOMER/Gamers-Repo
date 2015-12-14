@@ -5,6 +5,7 @@
 }
 
 <h2>Lister</h2>
+<h2>@ViewBag.test</h2>
 
 <p>
     <a href='@Url.Action("Ajouter", "Personnes")' style="text-decoration:none">
@@ -53,7 +54,9 @@
             @Html.DisplayFor(modelItem => item.Prenom)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Nom)
+            <a href='@Url.Action("Lister", "Jeux", new { nom = item.Nom })' style="text-decoration:none">
+                @Html.DisplayFor(modelItem => item.Nom)
+            </a>
         </td>
         <td>
             <img id="new_image" src="@Url.Content("~" + item.GetImageURL())" width="100" height="100" />

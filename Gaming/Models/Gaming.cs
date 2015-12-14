@@ -248,4 +248,148 @@ namespace Gaming
         }
     }
 
+
+    // La classe pour la liste
+    public class UnLienListe
+    {
+        public long Id { get; set; }
+
+        [Display(Name = "IdPersonne")]
+        public long IdPersonne { get; set; }
+
+        [Display(Name = "IdJeu")]
+        public long IdJeu { get; set; }
+
+        public UnLienListe()
+        {
+            IdPersonne = 0;
+            IdJeu = 0;
+        }
+    }
+
+    public class Liste : SqlExpressUtilities.SqlExpressWrapper
+    {
+        public UnLienListe unLienListe { get; set; }
+        public Liste(object cs)
+            : base(cs)
+        {
+            unLienListe = new UnLienListe();
+        }
+        public Liste() { unLienListe = new UnLienListe(); }
+
+        public List<UnLienListe> ToList()
+        {
+            List<object> list = this.RecordsList();
+            List<Gaming.UnLienListe> liste_list = new List<UnLienListe>();
+            foreach (UnLienListe unLienListe in list)
+            {
+                liste_list.Add(unLienListe);
+            }
+            return liste_list;
+        }
+
+        public override void DeleteRecordByID(String ID)
+        {
+            if (this.SelectByID(ID))
+            {
+                base.DeleteRecordByID(ID);
+            }
+        }
+    }
+
+    public class Jeux_Par_Personne : SqlExpressUtilities.SqlExpressWrapper
+    {
+        public Jeu jeu { get; set; }
+
+        private String nom_Personne = "";
+
+        public Jeux_Par_Personne(String nom_Personne, object cs)
+            : base(cs)
+        {
+            this.nom_Personne = nom_Personne;
+            jeu = new Jeu();
+        }
+
+        public List<Jeu> ToList()
+        {
+            List<object> list = this.RecordsList();
+            List<Gaming.Jeu> Jeu_list = new List<Jeu>();
+            foreach (Jeu jeu in list)
+            {
+                Jeu_list.Add(jeu);
+            }
+            return Jeu_list;
+        }
+
+        public Jeux_Par_Personne() { jeu = new Jeu(); }
+
+        public override void SelectAll(string orderBy = "")
+        {
+            // Pour l'instant, le where se fais avec le nom de la personne. Donc, faut
+            // pas deux personnes avec le même nom! 
+            string sql = "SELECT " +
+                            "Jeux.Nom, " +
+                            "Jeux.Type, " +
+                            "Jeux.Photo, " +
+                            "Jeux.Description, " +
+                            "Jeux.SiteWeb " +
+                            "FROM Personnes INNER JOIN Liste " +
+                            "ON Personnes.Id = Liste.IdPersonne INNER JOIN Jeux " +
+                            "ON Liste.IdJeu = Jeux.Id " +
+                            "WHERE Personnes.Nom = " + SqlExpressUtilities.SQLHelper.ConvertValueFromMemberToSQL(nom_Personne);
+
+            if (orderBy != "")
+                sql += " ORDER BY " + orderBy;
+
+            QuerySQL(sql);
+        }
+    }
+
+    public class Personnes_Par_Jeu : SqlExpressUtilities.SqlExpressWrapper
+    {
+        public Personne personne { get; set; }
+
+        private String nom_Jeu = "";
+
+        public Personnes_Par_Jeu(String nom_Jeu, object cs)
+            : base(cs)
+        {
+            this.nom_Jeu = nom_Jeu;
+            personne = new Personne();
+        }
+
+        public List<Personne> ToList()
+        {
+            List<object> list = this.RecordsList();
+            List<Gaming.Personne> Personne_list = new List<Personne>();
+            foreach (Personne personne in list)
+            {
+                Personne_list.Add(personne);
+            }
+            return Personne_list;
+        }
+
+        public Personnes_Par_Jeu() { personne = new Personne(); }
+
+        public override void SelectAll(string orderBy = "")
+        {
+            // Pour l'instant, le where se fais avec le nom de la personne. Donc, faut
+            // pas deux personnes avec le même nom! 
+            string sql = "SELECT " +
+                            "Personnes.Nom, " +
+                            "Personnes.Prenom, " +
+                            "Personnes.DateNaissance, " +
+                            "Personnes.Photo " +
+                            "FROM Personnes INNER JOIN Liste " +
+                            "ON Personnes.Id = Liste.IdPersonne INNER JOIN Jeux " +
+                            "ON Liste.IdJeu = Jeux.Id " +
+                            "WHERE Jeux.Nom = " + SqlExpressUtilities.SQLHelper.ConvertValueFromMemberToSQL(nom_Jeu);
+
+            if (orderBy != "")
+                sql += " ORDER BY " + orderBy;
+
+            QuerySQL(sql);
+        }
+    }
+
 }
