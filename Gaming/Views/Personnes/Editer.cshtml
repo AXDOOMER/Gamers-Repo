@@ -44,7 +44,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Photo, new { @class = "control-label col-md-2" })
+            @Html.HiddenFor(model => model.Photo, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <img id="new_image" src="@Model.GetImageURL()" width="300" />
                 <input type="file" name="FU_Image" id="FU_Image" style="display:none;" onchange="PreLoadImage();" />
