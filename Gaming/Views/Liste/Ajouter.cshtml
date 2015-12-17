@@ -24,26 +24,26 @@
     List<Personne> ListePersonne = personnes.ToList();
     
     <div class="form-group">           
-        @{
-            // Créer les radio button pour la table Jeux
-            // @Jeu.Nom.ToString()</input>
-            foreach (Jeu jeu in ListeJeu)
-            {         
-                <input type="radio" name="radioJeu" value="@jeu.Id" checked="checked" title="@jeu.Nom.ToString()" />
-                <label>@jeu.Nom.ToString()</label><br>
-            }
-        }
+		@{
+			// Créer les radio button pour la table Personnes
+			// @personne.Nom.ToString()</input>
+			foreach (Personne personne in ListePersonne)
+			{
+				<input type="radio" name="radioPersonne" value="@personne.Id" checked="checked" title="@personne.Nom.ToString()" />
+					<label>@personne.Prenom.ToString() @personne.Nom.ToString()</label><br>
+			}
+		}
         </div>
         <div class="form-group">
-        @{
-            // Créer les radio button pour la table Personnes
-            // @personne.Nom.ToString()</input>
-            foreach (Personne personne in ListePersonne)
-            {     
-                <input type="radio" name="radioPersonne" value="@personne.Id" checked="checked" title="@personne.Nom.ToString()" />
-                <label>@personne.Prenom.ToString() @personne.Nom.ToString()</label><br>
-            }
-        }
+		@{
+			// Créer les radio button pour la table Jeux
+			// @Jeu.Nom.ToString()</input>
+			foreach (Jeu jeu in ListeJeu)
+			{
+				<input type="radio" name="radioJeu" value="@jeu.Id" checked="checked" title="@jeu.Nom.ToString()" />
+						<label>@jeu.Nom.ToString()</label><br>
+			}
+		}
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

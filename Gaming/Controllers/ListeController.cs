@@ -8,17 +8,41 @@ namespace Gaming.Controllers
 {
     public class ListeController : Controller
     {
+		public ActionResult Sort(String sortBy)
+		{
+			if (Session["Liste_SortBy"] == null)
+			{
+				Session["Liste_SortBy"] = sortBy;
+				Session["Liste_SortOrder"] = "ASC";
+			}
+			else
+			{
+				if ((String)Session["Liste_SortBy"] == sortBy)
+				{
+					if ((String)Session["Liste_sortOrder"] == "ASC")
+						Session["Liste_SortOrder"] = "DESC";
+					else
+						Session["Liste_SortOrder"] = "ASC";
+				}
+				else
+				{
+					Session["Liste_SortBy"] = sortBy;
+					Session["Liste_SortOrder"] = "ASC";
+				}
+			}
+			return RedirectToAction("Lister", "Liste");
+		}
         //
         // GET: /Liste/
         public ActionResult Lister()
         {
             Liste liste = new Liste(Session["DB_REPO"]);
 
-            //String orderBy = "";
-            //if (Session["Jeu_SortBy"] != null)
-            //    orderBy = (String)Session["Jeu_SortBy"] + " " + (String)Session["Jeu_SortOrder"];
+            String orderBy = "";
+            if (Session["Liste_SortBy"] != null)
+				orderBy = (String)Session["Liste_SortBy"] + " " + (String)Session["Liste_SortOrder"];
 
-            liste.SelectAll(/*orderBy*/);
+            liste.SelectAll(orderBy);
             return View(liste.ToList());
         }
         public ActionResult Ajouter()

@@ -18,9 +18,21 @@
     <tr>
         <th>
             @Html.Label("Personnes")
+			<a href='@Url.Action("Sort", "Liste",new {sortBy = "IdPersonne"})' style="text-decoration:none">
+				<img src='@Url.Content("~/Images/UI/Sort.png")'
+					 alt="Ajouter" class="CMD_Icon_4"
+					 data-toggle="tooltip"
+					 title="Trier par le nom de la personne" />
+			</a>
         </th>
         <th>
             @Html.Label("Jeux")
+			<a href='@Url.Action("Sort", "Liste",new {sortBy = "IdJeu"})' style="text-decoration:none">
+				<img src='@Url.Content("~/Images/UI/Sort.png")'
+					 alt="Ajouter" class="CMD_Icon_4"
+					 data-toggle="tooltip"
+					 title="Trier par le prenom de la personne" />
+			</a>
         </th>
         <th></th>
     </tr>
@@ -56,17 +68,17 @@
 				</td>
                 <td>
                     <a href='@Url.Action("Editer", "Liste", new { id = item.Id })' style="text-decoration:none">
-                        <img src='@Url.Content("~/Images/UI/Edit.png")'
-                             alt="Editer" class="CMD_Icon_3"
-                             data-toggle="tooltip"
-                             title="Éditer les détails du lien #@item.Id" />
+						<img src='@Url.Content("~/Images/UI/Edit.png")'
+							 alt="Editer" class="CMD_Icon_3"
+							 data-toggle="tooltip"
+							 title="Modifier le lien entre @prenomPersonne @nomPersonne et @nomJeu" />
                     </a> &nbsp;
 
-                    <img src='@Url.Content("~/Images/UI/Delete.png")'
-                         alt="Delete" class="CMD_Icon_3"
-                         onclick="BBConfirm('Effacer le lien #@item.Id?', '@Url.Action("Effacer", "Liste", new { id = item.Id })')"
-                         data-toggle="tooltip"
-                         title="Effacer le lien: #@item.Id" />
+					<img src='@Url.Content("~/Images/UI/Delete.png")'
+						 alt="Delete" class="CMD_Icon_3"
+						 onclick="BBConfirm('Effacer le lien entre @prenomPersonne @nomPersonne et @nomJeu?', '@Url.Action("Effacer", "Liste", new { id = item.Id })')"
+						 data-toggle="tooltip"
+						 title="Effacer le lien entre @prenomPersonne @nomPersonne et @nomJeu" />
                 </td>
             </tr>
         }

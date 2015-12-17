@@ -25,36 +25,36 @@
 	personnes.SelectAll("Prenom");
     List<Personne> ListePersonne = personnes.ToList();
     
-    <div class="form-group">           
-        @{
-    // @Jeu.Nom.ToString()</input>
-            foreach (Jeu jeu in ListeJeu)
-            {
-                // Seulment checked le bon ratio button
-                string check = ""; ;
-                if (idJeu == jeu.Id)
-                {
-                    check = "checked=\"checked\"";
-                }
-                <input type="radio" name="radioJeu" value="@jeu.Id" @check title="@jeu.Nom.ToString()" />
-                <label>@jeu.Nom.ToString()</label><br>
-            }
-        }
+    <div class="form-group">      
+		@{
+			// @personne.Nom.ToString()</input>
+			foreach (Personne personne in ListePersonne)
+			{
+				string check = "";
+				if (idPersonne == personne.Id)
+				{
+					check = "checked=\"checked\"";
+				}
+				<input type="radio" name="radioPersonne" value="@personne.Id" @check title="@personne.Nom.ToString()" />
+					<label>@personne.Prenom.ToString() @personne.Nom.ToString()</label><br>
+			}
+		}
         </div>
         <div class="form-group">
-        @{
-            // @personne.Nom.ToString()</input>
-            foreach (Personne personne in ListePersonne)
-            {
-                string check = "";
-                if (idPersonne == personne.Id)
-                {
-                    check = "checked=\"checked\"";
-                }
-                <input type="radio" name="radioPersonne" value="@personne.Id" @check title="@personne.Nom.ToString()" />
-                <label>@personne.Prenom.ToString() @personne.Nom.ToString()</label><br>
-            }
-        }
+			@{
+				// @Jeu.Nom.ToString()</input>
+				foreach (Jeu jeu in ListeJeu)
+				{
+					// Seulment checked le bon ratio button
+					string check = ""; ;
+					if (idJeu == jeu.Id)
+					{
+						check = "checked=\"checked\"";
+					}
+					<input type="radio" name="radioJeu" value="@jeu.Id" @check title="@jeu.Nom.ToString()" />
+							<label>@jeu.Nom.ToString()</label><br>
+				}
+			}
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Modifier" class="btn btn-default" />
