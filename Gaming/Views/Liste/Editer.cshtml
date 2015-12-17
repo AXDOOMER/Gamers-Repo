@@ -4,7 +4,7 @@
     ViewBag.Title = "Editer";
 }
 
-<h2>Editer</h2>
+<h2>Modifier</h2>
 <h3 style="background-color:red">@ViewBag.Erreur</h3>
 
 @using (Html.BeginForm())
@@ -14,15 +14,15 @@
     Jeux jeux = new Jeux(Session["DB_REPO"]);
     // Select le nom du jeu
     jeux.SelectByID(Model.IdJeu);
-    long idJeu = jeux.jeu.Id;
-    jeux.SelectAll();
+	long idJeu = jeux.jeu.Id;
+	jeux.SelectAll("Nom");
     List<Jeu> ListeJeu = jeux.ToList();
 
     Personnes personnes = new Personnes(Session["DB_REPO"]);
     // Select le nom de la personne
     personnes.SelectByID(Model.IdPersonne);
-    long idPersonne = personnes.personne.Id;
-    personnes.SelectAll();
+	long idPersonne = personnes.personne.Id;
+	personnes.SelectAll("Prenom");
     List<Personne> ListePersonne = personnes.ToList();
     
     <div class="form-group">           
@@ -52,7 +52,7 @@
                     check = "checked=\"checked\"";
                 }
                 <input type="radio" name="radioPersonne" value="@personne.Id" @check title="@personne.Nom.ToString()" />
-                <label>@personne.Nom.ToString()</label><br>
+                <label>@personne.Prenom.ToString() @personne.Nom.ToString()</label><br>
             }
         }
         <div class="form-group">

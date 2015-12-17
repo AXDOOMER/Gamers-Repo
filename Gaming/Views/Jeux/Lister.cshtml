@@ -4,7 +4,7 @@
     ViewBag.Title = "Lister";
 }
 
-<h2>Lister</h2>
+<h2>Liste des jeux</h2>
 
 <p>
     <a href='@Url.Action("Ajouter", "Jeux")' style="text-decoration:none">
@@ -18,6 +18,7 @@
 <table class="table">
     <tr>
         <th>
+			@Html.DisplayNameFor(model => model.Nom)
             <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Nom"})' style="text-decoration:none">
                 <img src='@Url.Content("~/Images/UI/Sort.png")'
                      alt="Ajouter" class="CMD_Icon_4"
@@ -26,6 +27,7 @@
             </a>
         </th>
         <th>
+			@Html.DisplayNameFor(model => model.Type)
             <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Type"})' style="text-decoration:none">
                 <img src='@Url.Content("~/Images/UI/Sort.png")'
                      alt="Ajouter" class="CMD_Icon_4"
@@ -34,6 +36,7 @@
             </a>
         </th>
         <th>
+			@Html.DisplayNameFor(model => model.Description)
             <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Description"})' style="text-decoration:none">
                 <img src='@Url.Content("~/Images/UI/Sort.png")'
                      alt="Ajouter" class="CMD_Icon_4"
@@ -50,9 +53,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            <a href='@Url.Action("Lister", "Personnes", new { nom = item.Nom })' style="text-decoration:none">
-                @Html.DisplayFor(modelItem => item.Nom)
-            </a>
+            @Html.DisplayFor(modelItem => item.Nom)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Type)
@@ -64,6 +65,13 @@
             <img id="new_image" src="@Url.Content("~" + item.GetImageURL())" width="100" height="100" />
         </td>
         <td>
+			<a href='@Url.Action("Lister", "Personnes", new { nom = item.Nom })' style="text-decoration:none">
+				<img src='@Url.Content("~/Images/Photos/Anonymous.png")'
+					 alt="Détails" class="CMD_Icon_3"
+					 data-toggle="tooltip"
+					 title="Voir par qui @item.Nom est joué" />
+			</a> &nbsp;
+
             <a href='@Url.Action("Details", "Jeux", new { id = item.Id })' style="text-decoration:none">
                 <img src='@Url.Content("~/Images/UI/Details.png")'
                      alt="Détails" class="CMD_Icon_3"

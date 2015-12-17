@@ -207,6 +207,7 @@
     <Content Include="Images\UI\Delete_Disable.png" />
     <Content Include="Images\UI\Details.png" />
     <Content Include="Images\UI\Edit.png" />
+    <Content Include="Images\UI\Games.png" />
     <Content Include="Images\UI\Icon_Expanded_neutral.png" />
     <Content Include="Images\UI\Icon_Expand_neutral.png" />
     <Content Include="Images\UI\important.png" />

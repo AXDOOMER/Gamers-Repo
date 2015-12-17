@@ -16,11 +16,11 @@
 
     // Déclare des classes jeux et personnes pour atteindre les tables
     Jeux jeux = new Jeux(Session["DB_REPO"]);
-    jeux.SelectAll();
+    jeux.SelectAll("Nom");
     List<Jeu> ListeJeu = jeux.ToList();
 
-    Personnes personnes = new Personnes(Session["DB_REPO"]);
-    personnes.SelectAll();
+	Personnes personnes = new Personnes(Session["DB_REPO"]);
+	personnes.SelectAll("Prenom");
     List<Personne> ListePersonne = personnes.ToList();
     
     <div class="form-group">           
@@ -41,7 +41,7 @@
             foreach (Personne personne in ListePersonne)
             {     
                 <input type="radio" name="radioPersonne" value="@personne.Id" checked="checked" title="@personne.Nom.ToString()" />
-                <label>@personne.Nom.ToString()</label><br>
+                <label>@personne.Prenom.ToString() @personne.Nom.ToString()</label><br>
             }
         }
         <div class="form-group">

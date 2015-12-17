@@ -4,7 +4,7 @@
     ViewBag.Title = "Lister";
 }
 
-<h2>Lister</h2>
+<h2>Liste de gamers et leurs jeux</h2>
 
 <p>
     <a href='@Url.Action("Ajouter", "Liste")' style="text-decoration:none">
@@ -30,6 +30,7 @@
         string nomJeu = "";
         Personnes personnes = new Personnes(Session["DB_REPO"]);
         string nomPersonne = "";
+		string prenomPersonne = "";
     }
         @foreach (var item in Model)
         {
@@ -39,11 +40,12 @@
 
             // Select le nom de la personne
             personnes.SelectByID(item.IdPersonne);
-            nomPersonne = personnes.personne.Nom; 
+			nomPersonne = personnes.personne.Nom;
+			prenomPersonne = personnes.personne.Prenom;  
              
             <tr>
                 <td>
-                    <p> @nomPersonne </p>
+                    <p> @prenomPersonne @nomPersonne </p>
                 </td>
                 <td>
                     <p> @nomJeu </p>
