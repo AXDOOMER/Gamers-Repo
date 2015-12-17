@@ -320,6 +320,12 @@ namespace Gaming
 
 			QuerySQL(sql);
 		}
+
+		public void SelectLink(String IdPersonne,String IdJeu)
+		{
+			string sql = "SELECT * from liste where IdPersonne=" + IdPersonne + " and IdJeu=" + IdJeu;
+			QuerySQL(sql);
+		}
     }
 
     public class Jeux_Par_Personne : SqlExpressUtilities.SqlExpressWrapper

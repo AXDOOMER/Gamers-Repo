@@ -29,7 +29,7 @@
 			// @personne.Nom.ToString()</input>
 			foreach (Personne personne in ListePersonne)
 			{
-				<input type="radio" name="radioPersonne" value="@personne.Id" checked="checked" title="@personne.Nom.ToString()" />
+				<input type="radio" name="radioPersonne" value="@personne.Id"  title="@personne.Nom.ToString()" />
 					<label>@personne.Prenom.ToString() @personne.Nom.ToString()</label><br>
 			}
 		}
@@ -40,7 +40,7 @@
 			// @Jeu.Nom.ToString()</input>
 			foreach (Jeu jeu in ListeJeu)
 			{
-				<input type="radio" name="radioJeu" value="@jeu.Id" checked="checked" title="@jeu.Nom.ToString()" />
+				<input type="radio" name="radioJeu" value="@jeu.Id"  title="@jeu.Nom.ToString()" />
 						<label>@jeu.Nom.ToString()</label><br>
 			}
 		}

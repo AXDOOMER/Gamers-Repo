@@ -68,21 +68,42 @@ namespace Gaming.Controllers
                 //liste.unLienListe.IdJeu = Int64.Parse(unLienListe.IdJeu.ToString());
                 //liste.unLienListe.IdPersonne = Int64.Parse(unLienListe.IdPersonne.ToString());
 
-                liste.unLienListe.IdJeu = Int64.Parse(radioJeu);
-                liste.unLienListe.IdPersonne = Int64.Parse(radioPersonne);
+				liste.SelectLink(radioPersonne, radioJeu);
 
-                //liste.liste = liste;
-                try
-                {
-                    liste.Insert();
-                }
-                catch
-                {
-                    ViewBag.Erreur = "Une erreur lors de l'insertion";
-                    return View(unLienListe);
-                }
+				// Si c'est true, c'est pcq le lien existe déja
+				if (liste.Next())
+				{
+					ViewBag.Erreur = "Ce joueur est déja marqué comme jouant à ce jeu.";
+					liste.unLienListe.IdJeu = Int64.Parse(radioJeu);
+					liste.unLienListe.IdPersonne = Int64.Parse(radioPersonne);
+					return View(unLienListe);
+				}
+				else
+				{
+					if (radioJeu == null || radioJeu == "" || radioPersonne == null || radioPersonne == "")
+					{
+						ViewBag.Erreur = "Un ou plusieurs boutons n'étaient pas cochés.";
+						liste.unLienListe.IdJeu = 0;
+						liste.unLienListe.IdPersonne = 0;
+						return View(unLienListe);
+					}
+
+					liste.unLienListe.IdJeu = Int64.Parse(radioJeu);
+					liste.unLienListe.IdPersonne = Int64.Parse(radioPersonne);
+
+					//liste.liste = liste;
+					try
+					{
+						liste.Insert();
+					}
+					catch
+					{
+						ViewBag.Erreur = "Une erreur lors de l'insertion";
+						return View(unLienListe);
+					}
                 
-                return RedirectToAction("Lister", "Liste");
+					return RedirectToAction("Lister", "Liste");
+				}
             }
             return View(unLienListe);
         }
@@ -110,18 +131,32 @@ namespace Gaming.Controllers
             {
                 if (liste.SelectByID(unLienListe.Id))
                 {
-                    liste.unLienListe.IdJeu = Int64.Parse(radioJeu);
-                    liste.unLienListe.IdPersonne = Int64.Parse(radioPersonne);
-                    try
-                    {
-                        liste.Update();
-                    }
-                    catch
-                    {
-                        ViewBag.Erreur = "Une erreur lors de l'update";
-                        return View(unLienListe);
-                    }
-                    return RedirectToAction("Lister", "Liste");
+					liste.SelectLink(radioPersonne, radioJeu);
+
+					// Si c'est true, c'est pcq le lien existe déja
+					if (liste.Next())
+					{
+						ViewBag.Erreur = "Ce joueur est déja marqué comme jouant à ce jeu.";
+						unLienListe.IdJeu = Int64.Parse(radioJeu);
+						unLienListe.IdPersonne = Int64.Parse(radioPersonne);
+						return View(unLienListe);
+					}
+					else
+					{
+						liste.unLienListe.IdJeu = Int64.Parse(radioJeu);
+						liste.unLienListe.IdPersonne = Int64.Parse(radioPersonne);
+						try
+						{
+							liste.Update();
+						}
+						catch
+						{
+							ViewBag.Erreur = "Une erreur lors de l'update";
+							return View(unLienListe);
+						}
+						return RedirectToAction("Lister", "Liste");
+					}
+
                 }
             }
             return View(unLienListe);
