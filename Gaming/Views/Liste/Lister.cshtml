@@ -45,11 +45,15 @@
              
             <tr>
                 <td>
-                    <p> @prenomPersonne @nomPersonne </p>
-                </td>
+					<a href='@Url.Action("Details", "Personnes", new { id = item.IdPersonne })' style="text-decoration:none">
+						<p> @prenomPersonne @nomPersonne </p>
+					</a> &nbsp;
+				</td>
                 <td>
-                    <p> @nomJeu </p>
-                </td>
+					<a href='@Url.Action("Details", "Jeux", new { id = item.IdJeu })' style="text-decoration:none">
+						<p> @nomJeu </p>
+					</a> &nbsp;
+				</td>
                 <td>
                     <a href='@Url.Action("Editer", "Liste", new { id = item.Id })' style="text-decoration:none">
                         <img src='@Url.Content("~/Images/UI/Edit.png")'
