@@ -301,14 +301,14 @@ namespace Gaming
 			// Pour l'instant, le where se fais avec le nom de la personne. Donc, faut
 			// pas deux personnes avec le même nom! 
 			string sql = "SELECT " +
+							"liste.Id, " +
+							"liste.IdPersonne, " +
+							"liste.IdJeu, " +
 							"Personnes.Id, " +
 							"Personnes.Nom, " +	
 							"Personnes.Prenom, " +
 							"Jeux.Nom, " +
-							"Jeux.Id, " +
-							"liste.Id, " +
-							"liste.IdPersonne, " +
-							"liste.IdJeu " +
+							"Jeux.Id " +
 							"FROM Personnes INNER JOIN Liste " +
 							"ON Personnes.Id = Liste.IdPersonne INNER JOIN Jeux " +
 							"ON Liste.IdJeu = Jeux.Id ";
@@ -353,6 +353,7 @@ namespace Gaming
             // Pour l'instant, le where se fais avec le nom de la personne. Donc, faut
             // pas deux personnes avec le même nom! 
             string sql = "SELECT " +
+							"Jeux.Id, " +
                             "Jeux.Nom, " +
                             "Jeux.Type, " +
                             "Jeux.Photo, " +
@@ -401,6 +402,7 @@ namespace Gaming
             // Pour l'instant, le where se fais avec le nom de la personne. Donc, faut
             // pas deux personnes avec le même nom! 
             string sql = "SELECT " +
+							"Personnes.Id, " +
                             "Personnes.Nom, " +
                             "Personnes.Prenom, " +
                             "Personnes.DateNaissance, " +

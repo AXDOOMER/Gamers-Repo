@@ -19,16 +19,16 @@
     <tr>
         <th>
 			@Html.DisplayNameFor(model => model.Nom)
-            <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Nom"})' style="text-decoration:none">
-                <img src='@Url.Content("~/Images/UI/Sort.png")'
-                     alt="Ajouter" class="CMD_Icon_4"
-                     data-toggle="tooltip"
-                     title="Trier par Nom" />
-            </a>
+			<a href='@Url.Action("Sort", "Jeux", new { sortBy = "Nom", Nom = Request["nom"] })' style="text-decoration:none">
+				<img src='@Url.Content("~/Images/UI/Sort.png")'
+					 alt="Ajouter" class="CMD_Icon_4"
+					 data-toggle="tooltip"
+					 title="Trier par Nom" />
+			</a>
         </th>
         <th>
 			@Html.DisplayNameFor(model => model.Type)
-            <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Type"})' style="text-decoration:none">
+            <a href='@Url.Action("Sort", "Jeux", new { sortBy = "Type", Nom = Request["nom"] })' style="text-decoration:none">
                 <img src='@Url.Content("~/Images/UI/Sort.png")'
                      alt="Ajouter" class="CMD_Icon_4"
                      data-toggle="tooltip"
@@ -37,7 +37,7 @@
         </th>
         <th>
 			@Html.DisplayNameFor(model => model.Description)
-            <a href='@Url.Action("Sort", "Jeux",new {sortBy = "Description"})' style="text-decoration:none">
+            <a href='@Url.Action("Sort", "Jeux", new { sortBy = "Description", Nom = Request["nom"] })' style="text-decoration:none">
                 <img src='@Url.Content("~/Images/UI/Sort.png")'
                      alt="Ajouter" class="CMD_Icon_4"
                      data-toggle="tooltip"

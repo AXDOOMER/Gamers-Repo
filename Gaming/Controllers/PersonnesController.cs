@@ -8,7 +8,7 @@ namespace Gaming.Controllers
 {
     public class PersonnesController : Controller
     {
-        public ActionResult Sort(String sortBy)
+        public ActionResult Sort(String sortBy, String Nom = "")
         {
             if (Session["Personne_SortBy"] == null)
             {
@@ -30,29 +30,40 @@ namespace Gaming.Controllers
                     Session["Personne_SortOrder"] = "ASC";
                 }
             }
-            return RedirectToAction("Lister", "Personnes");
+
+			if (Nom != "")
+			{
+				return RedirectToAction("Lister", "Personnes", new { Nom });
+			}
+			else
+			{
+				return RedirectToAction("Lister", "Personnes");
+			}
         }
         public ActionResult Lister()
         {
-            if (Request["nom"] != null)
-            {
-                Personnes_Par_Jeu personnesParjeu = new Personnes_Par_Jeu(Request["nom"], Session["DB_REPO"]);
+			Personnes personnes = new Personnes(Session["DB_REPO"]);
 
-                /*String orderBy = "";
-                if (Session["Personne_SortBy"] != null)
-                    orderBy = (String)Session["Personne_SortBy"] + " " + (String)Session["Personne_SortOrder"];*/
+			if (Request["nom"] != null)
+			{
+				Personnes_Par_Jeu personnesParjeu = new Personnes_Par_Jeu(Request["nom"], Session["DB_REPO"]);
 
-                personnesParjeu.SelectAll("");
-                return View(personnesParjeu.ToList());
-            }
-            Personnes personnes = new Personnes(Session["DB_REPO"]);
+				String orderBy = "";
+				if (Session["Personne_SortBy"] != null)
+					orderBy = (String)Session["Personne_SortBy"] + " " + (String)Session["Personne_SortOrder"];
 
-            String orderBy = "";
-            if (Session["Personne_SortBy"] != null)
-                orderBy = (String)Session["Personne_SortBy"] + " " + (String)Session["Personne_SortOrder"];
+				personnesParjeu.SelectAll(orderBy);
+				return View(personnesParjeu.ToList());
+			}
+			else
+			{
+				String orderBy = "";
+				if (Session["Personne_SortBy"] != null)
+					orderBy = (String)Session["Personne_SortBy"] + " " + (String)Session["Personne_SortOrder"];
 
-            personnes.SelectAll(orderBy);
-            return View(personnes.ToList());
+				personnes.SelectAll(orderBy);
+				return View(personnes.ToList());
+			}
         }
         public ActionResult Ajouter()
         {

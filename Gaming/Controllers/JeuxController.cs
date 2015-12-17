@@ -8,7 +8,7 @@ namespace Gaming.Controllers
 {
     public class JeuxController : Controller
     {
-        public ActionResult Sort(String sortBy)
+        public ActionResult Sort(String sortBy, String Nom = "")
         {
             if (Session["Jeu_SortBy"] == null)
             {
@@ -30,29 +30,42 @@ namespace Gaming.Controllers
                     Session["Jeu_SortOrder"] = "ASC";
                 }
             }
-            return RedirectToAction("Lister", "Jeux");
+
+			if (Nom != "")
+			{
+				return RedirectToAction("Lister", "Jeux", new { Nom });
+			}
+			else
+			{
+				return RedirectToAction("Lister", "Jeux");
+			}
+
+			
         }
         public ActionResult Lister()
         {
-            if (Request["nom"] != null)
-            {
-                Jeux_Par_Personne jeuxParPersonnes = new Jeux_Par_Personne(Request["nom"], Session["DB_REPO"]);
+			Jeux jeux = new Jeux(Session["DB_REPO"]);
 
-                /*String orderBy = "";
-                if (Session["Personne_SortBy"] != null)
-                    orderBy = (String)Session["Personne_SortBy"] + " " + (String)Session["Personne_SortOrder"];*/
+			if (Request["nom"] != null)
+			{
+				Jeux_Par_Personne jeuxParPersonnes = new Jeux_Par_Personne(Request["nom"], Session["DB_REPO"]);
 
-                jeuxParPersonnes.SelectAll("");
-                return View(jeuxParPersonnes.ToList());
-            }
-            Jeux jeux = new Jeux(Session["DB_REPO"]);
+				String orderBy = "";
+				if (Session["Jeu_SortBy"] != null)
+					orderBy = (String)Session["Jeu_SortBy"] + " " + (String)Session["Jeu_SortOrder"];
 
-            String orderBy = "";
-            if (Session["Jeu_SortBy"] != null)
-                orderBy = (String)Session["Jeu_SortBy"] + " " + (String)Session["Jeu_SortOrder"];
+				jeuxParPersonnes.SelectAll(orderBy);
+				return View(jeuxParPersonnes.ToList());
+			}
+			else
+			{
+				String orderBy = "";
+				if (Session["Jeu_SortBy"] != null)
+					orderBy = (String)Session["Jeu_SortBy"] + " " + (String)Session["Jeu_SortOrder"];
 
-            jeux.SelectAll(orderBy);
-            return View(jeux.ToList());
+				jeux.SelectAll(orderBy);
+				return View(jeux.ToList());
+			}
         }
         public ActionResult Ajouter()
         {
