@@ -39,10 +39,19 @@ namespace Gaming.Controllers
             Liste liste = new Liste(Session["DB_REPO"]);
 
             String orderBy = "";
-            if (Session["Liste_SortBy"] != null)
+			// Si on veut sorter par quelque chose, il faut utiliser le sort spécial. 
+			if (Session["Liste_SortBy"] != null)
+			{ 
 				orderBy = (String)Session["Liste_SortBy"] + " " + (String)Session["Liste_SortOrder"];
+				liste.SpecialSelectAll(orderBy);
+			}
+			else
+			{ 
+				
+				liste.SelectAll();
+			}
 
-            liste.SelectAll(orderBy);
+            //liste.SelectAll(orderBy);
             return View(liste.ToList());
         }
         public ActionResult Ajouter()

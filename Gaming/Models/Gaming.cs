@@ -295,6 +295,31 @@ namespace Gaming
                 base.DeleteRecordByID(ID);
             }
         }
+
+		public void SpecialSelectAll(string orderBy = "")
+		{
+			// Pour l'instant, le where se fais avec le nom de la personne. Donc, faut
+			// pas deux personnes avec le même nom! 
+			string sql = "SELECT " +
+							"Personnes.Id, " +
+							"Personnes.Nom, " +	
+							"Personnes.Prenom, " +
+							"Jeux.Nom, " +
+							"Jeux.Id, " +
+							"liste.Id, " +
+							"liste.IdPersonne, " +
+							"liste.IdJeu " +
+							"FROM Personnes INNER JOIN Liste " +
+							"ON Personnes.Id = Liste.IdPersonne INNER JOIN Jeux " +
+							"ON Liste.IdJeu = Jeux.Id ";
+
+			if (orderBy != "")
+			{
+				sql += " ORDER BY " + orderBy;
+			}
+
+			QuerySQL(sql);
+		}
     }
 
     public class Jeux_Par_Personne : SqlExpressUtilities.SqlExpressWrapper

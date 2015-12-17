@@ -18,7 +18,7 @@
     <tr>
         <th>
             @Html.Label("Personnes")
-			<a href='@Url.Action("Sort", "Liste",new {sortBy = "IdPersonne"})' style="text-decoration:none">
+			<a href='@Url.Action("Sort", "Liste", new { sortBy = "Personnes.Prenom" })' style="text-decoration:none">
 				<img src='@Url.Content("~/Images/UI/Sort.png")'
 					 alt="Ajouter" class="CMD_Icon_4"
 					 data-toggle="tooltip"
@@ -27,7 +27,7 @@
         </th>
         <th>
             @Html.Label("Jeux")
-			<a href='@Url.Action("Sort", "Liste",new {sortBy = "IdJeu"})' style="text-decoration:none">
+			<a href='@Url.Action("Sort", "Liste", new { sortBy = "Jeux.Nom" })' style="text-decoration:none">
 				<img src='@Url.Content("~/Images/UI/Sort.png")'
 					 alt="Ajouter" class="CMD_Icon_4"
 					 data-toggle="tooltip"
