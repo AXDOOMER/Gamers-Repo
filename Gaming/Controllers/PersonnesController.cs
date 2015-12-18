@@ -76,6 +76,23 @@ namespace Gaming.Controllers
             if (ModelState.IsValid)
             {
                 Personnes personnes = new Personnes(Session["DB_REPO"]);
+
+                String sql = "SELECT * from Personnes where Prenom='" + personne.Prenom.ToString() + "'";
+                personnes.QuerySQL(sql);
+                // Le même prenom
+                if(personnes.Next())
+                {
+                    //Le même nom
+                    sql = "SELECT * from Personnes where Nom='" + personne.Nom.ToString() + "'";
+                    personnes.QuerySQL(sql);
+                    if (personnes.Next())
+                    {
+                        ViewBag.Erreur = "Un gamer possède déja ce nom et prénom";
+                        return View(personne);
+                    }
+                }
+
+                // Tout est valide
                 personnes.personne = personne;
                 personnes.personne.UpLoadImage(Request);
                 personnes.Insert();
@@ -109,10 +126,38 @@ namespace Gaming.Controllers
             {
                 if (personnes.SelectByID(personne.Id))
                 {
-                    personnes.personne = personne;
-                    personnes.personne.UpLoadImage(Request);
-                    personnes.Update();
-                    return RedirectToAction("Lister", "Personnes");
+                    String sql = "SELECT * from Personnes where Prenom='" + personne.Prenom.ToString() + "'";
+                    personnes.QuerySQL(sql);
+                    // Le même prenom
+                    if (personnes.Next())
+                    {
+                        //Le même nom
+                        sql = "SELECT * from Personnes where Nom='" + personne.Nom.ToString() + "'";
+                        personnes.QuerySQL(sql);
+                        if (personnes.Next())
+                        {
+                            // Vérifier si c'est pas moi-même
+                            personnes.SelectByID(personne.Id);
+                            if (personnes.personne.Prenom != personne.Prenom || 
+                                personnes.personne.Nom != personne.Nom)
+                            {
+                                ViewBag.Erreur = "Un gamer possède déja ce nom et prénom";
+                                return View(personne);
+                            }                                
+                        }
+                    }
+                    try
+                    {
+                        personnes.personne = personne;
+                        personnes.personne.UpLoadImage(Request);
+                        personnes.Update();
+                        return RedirectToAction("Lister", "Personnes");
+                    }
+                    catch
+                    {
+                        ViewBag.Erreur = "Une erreur lors de l'update! Avez-vous une image?";
+                    }
+
                 }
             }
             return View(personne);

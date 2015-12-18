@@ -78,6 +78,17 @@ namespace Gaming.Controllers
             if (ModelState.IsValid)
             {
                 Jeux jeux = new Jeux(Session["DB_REPO"]);
+
+                String sql = "SELECT * from jeux where Nom='" + jeu.Nom.ToString() + "'";
+                jeux.QuerySQL(sql);
+                // Le même nom
+                if (jeux.Next())
+                {
+                    ViewBag.Erreur = "Un jeu possède déja ce nom";
+                    return View(jeu);
+                }                           
+
+                // Si tout est valide
                 jeux.jeu = jeu;
                 jeux.jeu.UpLoadImage(Request);
                 jeux.Insert();
@@ -111,10 +122,30 @@ namespace Gaming.Controllers
             {
                 if (jeux.SelectByID(jeu.Id))
                 {
-                    jeux.jeu = jeu;
-                    jeux.jeu.UpLoadImage(Request);
-                    jeux.Update();
-                    return RedirectToAction("Lister", "Jeux");
+                    //Le même nom
+                    String sql = "SELECT * from jeux where Nom='" + jeu.Nom.ToString() + "'";
+                    jeux.QuerySQL(sql);
+                    if (jeux.Next())
+                    {
+                        // Vérifier si c'est pas moi-même
+                        jeux.SelectByID(jeu.Id);
+                        if (jeux.jeu.Nom != jeu.Nom)
+                        {
+                            ViewBag.Erreur = "Un jeu possède déja ce nom";
+                            return View(jeu);
+                        }
+                    }
+                    try
+                    {                  
+                        jeux.jeu = jeu;
+                        jeux.jeu.UpLoadImage(Request);
+                        jeux.Update();
+                        return RedirectToAction("Lister", "Jeux");
+                    }
+                    catch
+                    {
+                        ViewBag.Erreur = "Une erreur lors de l'update! Avez-vous une image?";
+                    }
                 }
             }
             return View(jeu);
